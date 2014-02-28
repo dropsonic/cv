@@ -32,15 +32,23 @@
 \usepackage{tcolorbox}
 \tcbuselibrary{most}
 \usetikzlibrary{calc}
+\newfontfamily{\FA}{FontAwesome}
 
 %-------------------------------------------------------------------------------
 %                Skype command definition
 %-------------------------------------------------------------------------------
 \newcommand*{\skype}[1]{\def\@skype{#1}}
-\newfontfamily{\FA}{FontAwesome}
 \providecommand\faSkype{{\FA\symbol{"F17E}}}
 \newcommand{\skypesymbol}{\faSkype~}
 \newcommand*{\skypelink}[1]{\protect\link[#1]{skype:#1}{}}
+
+%-------------------------------------------------------------------------------
+%                Github command definition
+%-------------------------------------------------------------------------------
+\newcommand*{\github}[1]{\def\@github{#1}}
+\providecommand\faGithub{{\FA\symbol{"F09B}}}
+\newcommand{\githubsymbol}{\faGithub~}
+\newcommand*{\githublink}[1]{\protect\link[#1]{http://github.com/#1}{}}
 
 %-------------------------------------------------------------------------------
 %                Blockquote command definition
@@ -204,6 +212,7 @@ frame code={%
       \phonesdetails% needs to be pre-rendered as loops and tabulars seem to conflict
       \ifthenelse{\isundefined{\@email}}{}{\makenewline\emailsymbol\emaillink{\@email}}%
 	  \ifthenelse{\isundefined{\@skype}}{}{\makenewline\skypesymbol\skypelink{\@skype}}%
+	  \ifthenelse{\isundefined{\@github}}{}{\makenewline\githubsymbol\githublink{\@github}}%
       \ifthenelse{\isundefined{\@homepage}}{}{\makenewline\homepagesymbol\httplink{\@homepage}}%
       \socialsdetails% needs to be pre-rendered as loops and tabulars seem to conflict
       \ifthenelse{\isundefined{\@extrainfo}}{}{\makenewline\@extrainfo}%
@@ -304,6 +313,7 @@ frame code={%
           \addtofooter{\csname\collectionloopkey phonesymbol\endcsname\collectionloopitem}}%
         \ifthenelse{\isundefined{\@email}}{}{\addtofooter{\emailsymbol\emaillink{\@email}}}%
 		\ifthenelse{\isundefined{\@skype}}{}{\addtofooter{\makenewline\skypesymbol\skypelink{\@skype}}}%
+		\ifthenelse{\isundefined{\@github}}{}{\addtofooter{\makenewline\githubsymbol\githublink{\@github}}}%
         \ifthenelse{\isundefined{\@homepage}}{}{\addtofooter{\homepagesymbol\httplink{\@homepage}}}%
         \collectionloop{socials}{% the key holds the social type (=symbol command prefix), the item holds the link
           \addtofooter{\csname\collectionloopkey socialsymbol\endcsname\collectionloopitem}}%
@@ -429,6 +439,7 @@ frame code={%
         \makenewline\csname\collectionloopkey phonesymbol\endcsname\collectionloopitem}%
       \ifthenelse{\isundefined{\@email}}{}{\makenewline\emailsymbol\emaillink{\@email}}%
 	  \ifthenelse{\isundefined{\@skype}}{}{\makenewline\skypesymbol\skypelink{\@skype}}%
+	  \ifthenelse{\isundefined{\@github}}{}{\makenewline\githubsymbol\githublink{\@github}}%
       \ifthenelse{\isundefined{\@homepage}}{}{\makenewline\homepagesymbol\httplink{\@homepage}}%
       \ifthenelse{\isundefined{\@extrainfo}}{}{\makenewline\@extrainfo}}%
     \end{minipage}\\[1em]
