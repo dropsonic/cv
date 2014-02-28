@@ -34,6 +34,7 @@
 \usetikzlibrary{calc}
 \newfontfamily{\FA}{FontAwesome}
 
+
 %-------------------------------------------------------------------------------
 %                Skype command definition
 %-------------------------------------------------------------------------------
@@ -368,15 +369,33 @@ frame code={%
     {}%
     {\listitemsymbol\begin{minipage}[t]{\listdoubleitemmaincolumnwidth}#3\end{minipage}}}}
 
+
+%-------------------------------------------------------------------------------
+%                CV entry style
+%-------------------------------------------------------------------------------
+\newcommand*{\usemoderncventry}{\def\@moderncventrystyle{}}
 \renewcommand*{\cventry}[7][.25em]{%
-  \cvitem[#1]{#2}{%
-    {\bfseries#3}%
-    \ifthenelse{\equal{#4}{}}{}{, {\slshape#4}}%
-    \ifthenelse{\equal{#5}{}}{}{, #5}%
-    \ifthenelse{\equal{#6}{}}{}{, #6}%
-    .\strut%
-    \ifx&#7&%
-      \else{\newline{}\begin{minipage}[t]{\linewidth}\small#7\end{minipage}}\fi}}
+	\cvitem[#1]{#2}{%
+	\ifthenelse{\isundefined{\@moderncventrystyle}}
+	{%
+			{\bfseries#3}%
+			\ifthenelse{\equal{#4}{}}{}{, {\slshape#4}}%
+			\ifthenelse{\equal{#5}{}}{}{, #5}%
+			\ifthenelse{\equal{#6}{}}{}{, #6}%
+			.\strut%
+			\ifx&#7&%
+			\else{\newline{}\begin{minipage}[t]{\linewidth}\small#7\end{minipage}}\fi
+	}%
+	{%
+			{\bfseries#4}%
+			\ifthenelse{\equal{#3}{}}{}{, {\slshape#3}}%
+			\ifthenelse{\equal{#5}{}}{}{, #5}%
+			\ifthenelse{\equal{#6}{}}{}{, #6}%
+			.\strut%
+			\ifx&#7&%
+			\else{\newline{}\begin{minipage}[t]{\linewidth}\small#7\end{minipage}}\fi
+	}}}
+%-------------------------------------------------------------------------------
 
 \newbox{\cvitemwithcommentmainbox}
 \newlength{\cvitemwithcommentmainlength}
