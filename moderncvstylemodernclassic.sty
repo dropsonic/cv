@@ -221,27 +221,49 @@ frame code={%
       \ifdim\@photoframewidth=0pt%
         \setlength{\fboxsep}{0pt}\fi%
       \framebox{\includegraphics[width=\@photowidth]{\@photo}}}}%
+      
+  % info and photo boxes
+  \newbox{\makecvtitlenamesandtitle}%
+  \savebox{\makecvtitlenamesandtitle}{%
+		\vspace*{0pt}
+  	    \mbox{\namestyle{\@firstname\ \@lastname}}%
+  	    \ifthenelse{\equal{\@title}{}}{}{\\[1.25em]\titlestyle{\@title}}}%
+  
   % name and title
   \newlength{\makecvtitledetailswidth}\settowidth{\makecvtitledetailswidth}{\usebox{\makecvtitledetailsbox}}%
   \newlength{\makecvtitlepicturewidth}\settowidth{\makecvtitlepicturewidth}{\usebox{\makecvtitlepicturebox}}%
   \ifthenelse{\lengthtest{\makecvtitlenamewidth=0pt}}% check for dummy value (equivalent to \ifdim\makecvtitlenamewidth=0pt)
     {\setlength{\makecvtitlenamewidth}{\textwidth-\makecvtitledetailswidth-\makecvtitlepicturewidth}}%
     {}%
-  \begin{minipage}[t]{\makecvtitlenamewidth}%
+
+	\newenvironment{cvtitleminipage}
+	{
+		\ifthenelse{\isundefined{\@photo}}
+		{
+			\begin{minipage}[b]{\makecvtitlenamewidth}
+		}
+		{
+			\begin{minipage}[t]{\makecvtitlenamewidth}
+		}
+	}
+	{
+		\end{minipage}
+	}
+  \begin{cvtitleminipage}%
   	\vspace*{0pt}
     \mbox{\namestyle{\@firstname\ \@lastname}}%
     \ifthenelse{\equal{\@title}{}}{}{\\[1.25em]\titlestyle{\@title}}%
-  \end{minipage}%
+  \end{cvtitleminipage}%
   \hfill%
   % optional detailed information (rendering)
-  \begin{minipage}[t]{\linewidth-\makecvtitlenamewidth}
+  \begin{cvtitleminipage}
   	\vspace*{0pt}%
   	\usebox{\makecvtitledetailsbox}% \llap is used to suppress the width of the box, allowing overlap if the value of makecvtitlenamewidth is forced
   	% optional photo (rendering)
   	\ifthenelse{\isundefined{\@photo}}%
     	{}%
     	{\usebox{\makecvtitlepicturebox}}%
-  \end{minipage}
+  \end{cvtitleminipage}
   \\[\bqtitlespace]
   % optional bannerquote
   \ifthenelse{\isundefined{\@bannerquote}}%
