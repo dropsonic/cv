@@ -56,6 +56,15 @@
 %-------------------------------------------------------------------------------
 \newcommand*{\bannerquote}[2][1.2em]{\def\@bannerquote{#2}\setlength\bqtitlespace{#1}}
 
+%-------------------------------------------------------------------------------
+%                Vacancy command definition
+%-------------------------------------------------------------------------------
+\newcommand*{\vacancyprefix}{\def\@vacancyprefix}
+\vacancyprefix{Желаемая позиция}
+\newcommand*{\vacancyfont}{\large\mdseries\slshape}
+\newcommand*{\vacancy}[1]{\def\@vacancy{#1}}
+\newcommand*{\vacancystyle}[1]{{\vacancyfont\textcolor{color2}{#1}}}
+
 % quote with banner
 \newtcolorbox{cvquotebanner}{
 freelance,
@@ -231,13 +240,6 @@ frame code={%
       \ifdim\@photoframewidth=0pt%
         \setlength{\fboxsep}{0pt}\fi%
       \framebox{\includegraphics[width=\@photowidth]{\@photo}}}}%
-      
-  % info and photo boxes
-  \newbox{\makecvtitlenamesandtitle}%
-  \savebox{\makecvtitlenamesandtitle}{%
-		\vspace*{0pt}
-  	    \mbox{\namestyle{\@firstname\ \@lastname}}%
-  	    \ifthenelse{\equal{\@title}{}}{}{\\[1.25em]\titlestyle{\@title}}}%
   
   % name and title
   \newlength{\makecvtitledetailswidth}\settowidth{\makecvtitledetailswidth}{\usebox{\makecvtitledetailsbox}}%
@@ -263,6 +265,7 @@ frame code={%
   	\vspace*{0pt}
     \mbox{\namestyle{\@firstname\ \@lastname}}%
     \ifthenelse{\equal{\@title}{}}{}{\\[1.25em]\titlestyle{\@title}}%
+    \ifthenelse{\equal{\@vacancy}{}}{}{\\[1.25em]\vacancystyle{\@vacancyprefix : \@vacancy}}
   \end{cvtitleminipage}%
   \hfill%
   % optional detailed information (rendering)
