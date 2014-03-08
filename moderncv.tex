@@ -11,12 +11,12 @@
 \setsansfont[Mapping=tex-text]{Calibri}
 \newfontfamily{\cyrillicfonttt}{Courier New}
 \usepackage{polyglossia}
-\setmainlanguage{english}
-%\setotherlanguage[variant=us]{russian}
+\setmainlanguage{russian}
+\setotherlanguage[variant=us]{english}
 
 %\newcommand\cventryitem{\item[\textbullet]\hspace*{1em}}
 \usepackage{enumitem}
-\setlist{nolistsep} % убрать лишний интервал между элементами списка
+\setlist{nolistsep} % remove extra space between items
 \setlist[itemize,1]{labelindent=6pt, leftmargin=*}
 \newcommand{\cventryitem}{\item[\textbullet]}
 
@@ -28,8 +28,7 @@
 %----------------------------------------------------------------------------------
 \firstname{Владимир}
 \familyname{Панченко}
-\title{Software Developer}
-\vacancy{C\# разработчик (Unity3D)}
+\input{vacancy.tex}
 %\address{г. Москва}
 \mobile{+7 (926) 410-55-70}
 \email{volodymyrthegreat@live.com}
@@ -37,8 +36,6 @@
 \github{dropsonic}
 
 \photo[100pt][0pt]{picture}
-\bannerquote{"Any fool can write code that a computer can understand. Good programmers write code that humans can understand."~---~Martin~Fowler}
-%
 
 \begin{document}
 %-----       resume       ---------------------------------------------------------
@@ -49,7 +46,7 @@
 \cvitem{}{Git, TFS, SVN, VS2010/2012/2013, ReSharper}
 \cvitem{}{Хороший уровень владения ООП, шаблонами проектирования, рефакторингом, UML. Знание Agile-методологий, TDD.}
 \section{Опыт работы}
-\cventry[\cventryvspace]{01.2014~--~н.в.}{}{Acumatica}{}{}{Разработка и поддержка cloud application framework и ядра облачной ERP-системы (C\#, ASP.NET, T-SQL, TFS).}
+\cventry[\cventryvspace]{01.2014~--~н.в.}{}{Acumatica}{}{}{Разработка и поддержка cloud application framework, ORM и ядра облачной ERP-системы (C\#, ASP.NET, T-SQL, TFS).}
 \cventry[\cventryvspace]{06--09.2013}{удалённо}{QB Finance}{}{}{Разработка ПО для продвижения в поисковых системах (C\#, Selenium, WinForms, TFS).}
 \cventry[\cventryvspace]{06--09.2012}{}{Свой проект}{}{}{Редактор уровней (C\#, XNA 4.0, Farseer Physics Engine, WinForms, Windows Phone, SVN). Свой XML-сериализатор объектного графа c поддержкой кольцевых ссылок и ссылок на файлы.}
 \cventry[\cventryvspace]{07--08.2012}{стажировка}{WebKontrol}{}{}{Создание и обновление модулей веб-краулера (C\#, WPF, Entity Framework, Regexp).}
@@ -68,16 +65,9 @@
 
 \section{Дополнительные сведения}
 \cvitem[\cventryvspace]{Возраст}{20 лет}
-\cvitem[\cventryvspace]{Личные качества}{Коммуникабелен, бесконфликтен, готов (и хочу!) брать на себя ответственность. Высокий уровень грамотности.}
+\cvitem[\cventryvspace]{Личные качества}{Легко работаю в команде. Коммуникабелен, бесконфликтен, готов (и хочу!) брать на себя ответственность. Внимателен к деталям. Высокий уровень грамотности.}
 \cvitem[\cventryvspace]{Хобби}{Прикладная психология, музыка (электрогитара), спорт.}
 \clearpage
 
-%-----       letter       ---------------------------------------------------------
-% recipient data
-\recipient{Ивану Ивановичу Иванову}{ООО «Рога и копыта»\\Москва, ул. Ленина, 27\\123456}
-\date{1 марта 2014}
-\opening{Уважаемый Иван Иванович,}
-\closing{С наилучшими пожеланиями,}
-\makelettertitle
-\makeletterclosing
+\input{letter.tex}
 \end{document}
