@@ -27,22 +27,20 @@
     {}
 %\fi
 
-%\usepackage{fontspec} 
-%\defaultfontfeatures{Extension = .ttf}
+\usepackage{fontawesomefixed}
 
-\usepackage{fontawesome}
 \usepackage{tikzpagenodes}
 \usepackage{tcolorbox}
 \tcbuselibrary{most}
 \usetikzlibrary{calc}
-\newfontfamily{\fafont}{FontAwesome Regular}
+%\newfontfamily{\fafont}{FontAwesome Regular}
 
 
 %-------------------------------------------------------------------------------
 %                Skype command definition
 %-------------------------------------------------------------------------------
 \newcommand*{\skype}[1]{\def\@skype{#1}}
-\providecommand\faSkype{{\fafont\symbol{"F17E}}}
+%\providecommand\faSkype{{\fafont\symbol{"F17E}}}
 \newcommand{\skypesymbol}{\faSkype~}
 \newcommand*{\skypelink}[1]{\protect\link[#1]{skype:#1}{}}
 
@@ -50,7 +48,7 @@
 %                Github command definition
 %-------------------------------------------------------------------------------
 \newcommand*{\github}[1]{\def\@github{#1}}
-\providecommand\faGithub{{\fafont\symbol{"F09B}}}
+%\providecommand\faGithub{{\fafont\symbol{"F09B}}}
 \newcommand{\githubsymbol}{\faGithub~}
 \newcommand*{\githublink}[1]{\protect\link[#1]{http://github.com/#1}{}}
 

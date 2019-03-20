@@ -24,6 +24,7 @@
 *.out
 *.gz
 *.synctex.gz
+*.synctex(busy)
 
 # Log files
 *.log
