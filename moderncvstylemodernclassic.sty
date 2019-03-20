@@ -27,19 +27,22 @@
     {}
 %\fi
 
+%\usepackage{fontspec} 
+%\defaultfontfeatures{Extension = .ttf}
+
 \usepackage{fontawesome}
 \usepackage{tikzpagenodes}
 \usepackage{tcolorbox}
 \tcbuselibrary{most}
 \usetikzlibrary{calc}
-\newfontfamily{\FA}{FontAwesome}
+\newfontfamily{\fafont}{FontAwesome Regular}
 
 
 %-------------------------------------------------------------------------------
 %                Skype command definition
 %-------------------------------------------------------------------------------
 \newcommand*{\skype}[1]{\def\@skype{#1}}
-\providecommand\faSkype{{\FA\symbol{"F17E}}}
+\providecommand\faSkype{{\fafont\symbol{"F17E}}}
 \newcommand{\skypesymbol}{\faSkype~}
 \newcommand*{\skypelink}[1]{\protect\link[#1]{skype:#1}{}}
 
@@ -47,7 +50,7 @@
 %                Github command definition
 %-------------------------------------------------------------------------------
 \newcommand*{\github}[1]{\def\@github{#1}}
-\providecommand\faGithub{{\FA\symbol{"F09B}}}
+\providecommand\faGithub{{\fafont\symbol{"F09B}}}
 \newcommand{\githubsymbol}{\faGithub~}
 \newcommand*{\githublink}[1]{\protect\link[#1]{http://github.com/#1}{}}
 
@@ -205,7 +208,7 @@ frame code={%
   % recompute lengths (in case we are switching from letter to resume, or vice versa)
   \recomputecvlengths%
   % ensure footer with personal information
-  \makecvfooter%
+  \makecvfoot%
   % optional detailed information (pre-rendering)
   \def\phonesdetails{}%
   \collectionloop{phones}{% the key holds the phone type (=symbol command prefix), the item holds the number
@@ -302,7 +305,7 @@ frame code={%
   \par}% to avoid weird spacing bug at the first section if no blank line is left after \makecvtitle
 
   
-\renewcommand*{\makecvfooter}{%
+\renewcommand*{\makecvfoot}{%
   \setlength{\footerwidth}{0.8\textwidth}%
   \fancypagestyle{plain}{%
     \fancyfoot[c]{%
