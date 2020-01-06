@@ -53,6 +53,20 @@
 \newcommand*{\githublink}[1]{\protect\link[#1]{http://github.com/#1}{}}
 
 %-------------------------------------------------------------------------------
+%                Telegram command definition
+%-------------------------------------------------------------------------------
+\newcommand*{\telegram}[1]{\def\@telegram{#1}}
+\newcommand{\telegramsymbol}{\faTelegram~}
+\newcommand*{\telegramlink}[1]{\protect\link[#1]{https://t.me/#1}{}}
+
+%-------------------------------------------------------------------------------
+%                WhatsApp command definition
+%-------------------------------------------------------------------------------
+\newcommand*{\whatsapp}[1]{\def\@whatsapp{#1}}
+\newcommand{\whatsappsymbol}{\faWhatsapp~}
+\newcommand*{\whatsapplink}[1]{\protect\link[#1]{https://wa.me/#1}{}}
+
+%-------------------------------------------------------------------------------
 %                Blockquote command definition
 %-------------------------------------------------------------------------------
 \newcommand*{\bannerquote}[2][1.2em]{\def\@bannerquote{#2}\setlength\bqtitlespace{#1}}
@@ -225,6 +239,8 @@ frame code={%
       \ifthenelse{\isundefined{\@email}}{}{\makenewline\emailsymbol\emaillink{\@email}}%
 	  \ifthenelse{\isundefined{\@skype}}{}{\makenewline\skypesymbol\skypelink{\@skype}}%
 	  \ifthenelse{\isundefined{\@github}}{}{\makenewline\githubsymbol\githublink{\@github}}%
+	  \ifthenelse{\isundefined{\@telegram}}{}{\makenewline\telegramsymbol\telegramlink{\@telegram}}%
+	  \ifthenelse{\isundefined{\@whatsapp}}{}{\makenewline\whatsappsymbol\whatsapplink{\@whatsapp}}%
       \ifthenelse{\isundefined{\@homepage}}{}{\makenewline\homepagesymbol\httplink{\@homepage}}%
       \socialsdetails% needs to be pre-rendered as loops and tabulars seem to conflict
       \ifthenelse{\isundefined{\@extrainfo}}{}{\makenewline\@extrainfo}%
@@ -320,6 +336,8 @@ frame code={%
         \ifthenelse{\isundefined{\@email}}{}{\addtofooter{\emailsymbol\emaillink{\@email}}}%
 		\ifthenelse{\isundefined{\@skype}}{}{\addtofooter{\makenewline\skypesymbol\skypelink{\@skype}}}%
 		\ifthenelse{\isundefined{\@github}}{}{\addtofooter{\makenewline\githubsymbol\githublink{\@github}}}%
+		\ifthenelse{\isundefined{\@telegram}}{}{\addtofooter{\makenewline\telegramsymbol\telegramlink{\@telegram}}}%
+		\ifthenelse{\isundefined{\@whatsapp}}{}{\addtofooter{\makenewline\whatsappsymbol\whatsapplink{\@whatsapp}}}%
         \ifthenelse{\isundefined{\@homepage}}{}{\addtofooter{\homepagesymbol\httplink{\@homepage}}}%
         \collectionloop{socials}{% the key holds the social type (=symbol command prefix), the item holds the link
           \addtofooter{\csname\collectionloopkey socialsymbol\endcsname\collectionloopitem}}%
@@ -464,6 +482,8 @@ frame code={%
       \ifthenelse{\isundefined{\@email}}{}{\makenewline\emailsymbol\emaillink{\@email}}%
 	  \ifthenelse{\isundefined{\@skype}}{}{\makenewline\skypesymbol\skypelink{\@skype}}%
 	  \ifthenelse{\isundefined{\@github}}{}{\makenewline\githubsymbol\githublink{\@github}}%
+	  \ifthenelse{\isundefined{\@telegram}}{}{\makenewline\telegramsymbol\telegramlink{\@telegram}}%
+	  \ifthenelse{\isundefined{\@whatsapp}}{}{\makenewline\whatsappsymbol\whatsapplink{\@whatsapp}}%
       \ifthenelse{\isundefined{\@homepage}}{}{\makenewline\homepagesymbol\httplink{\@homepage}}%
       \ifthenelse{\isundefined{\@extrainfo}}{}{\makenewline\@extrainfo}}%
     \end{minipage}\\[1em]
